@@ -6,6 +6,71 @@ html {
   scroll-behavior: smooth !important;
 }
 
+.hero,
+.portfolio,
+.workingWay,
+.prices,
+.reviews,
+.contacts {
+  scroll-margin-top: 15vh;
+} 
+
+.langModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.6);
+}
+
+.langModal.is-active {
+  display: flex;
+}
+
+.langModal__card {
+  background: #04060d;
+  border: 2px solid var(--color-accent-blue);
+  padding: 28px 32px;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 0 20px var(--color-accent-blue);
+  text-align: center;
+}
+
+.langModal__title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.langModal__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.langModal__btn {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background: #000;
+  border: 2px solid var(--color-accent-blue);
+  color: var(--color-accent-blue);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.langModal__btn:hover {
+  background: var(--color-accent-blue);
+  color: #000;
+  box-shadow: 0 0 18px var(--color-accent-blue);
+}
+
+
 *,
 *::before,
 *::after {
