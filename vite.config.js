@@ -3,7 +3,7 @@ import injectHTML from 'vite-plugin-html-inject';
 
 export default defineConfig({
     root: './src',
-    base: '/business-card/',
+    base: '/businessCard/',
     server: {
         port: 3000,
     },
