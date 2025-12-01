@@ -1,0 +1,98 @@
+html {
+  box-sizing: border-box;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 16px;
+  scroll-behavior: smooth !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.body {
+  position: relative;
+  overflow-x: hidden;
+  color: #fff;
+  background-color: #001023;
+
+  &--fixed {
+    overflow-y: hidden;
+  }
+}
+
+a {
+    color: #fff;
+}
+
+textarea {
+  border: none;
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.container__s {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1460px;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  @include mobile {
+    padding: 0 30px;
+  }
+}
+
