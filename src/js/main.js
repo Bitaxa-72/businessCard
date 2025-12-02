@@ -1,62 +1,49 @@
 import '../css/mainStyle.scss';
 import { portfolioSwiper } from './slider';
-import { contactsBannerTilt } from './slider'; 
-import { initReviews } from './slider'; 
+import { contactsBannerTilt } from './slider';
+import { initReviews } from './slider';
 import { initModals } from './modal.js';
 import { initLanguageModal } from './lang.js';
-
-initLanguageModal();
-contactsBannerTilt();
-initReviews();
-portfolioSwiper();
-initModals();
-
-const initModalForm = () => {
-  const form = document.querySelector('.modal__form');
-  if (!form) return;
-
-  const submitButton = form.querySelector('.modal__submit');
-  const hint = form.querySelector('.modal__hint');
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/send-form.php', {
-        method: 'POST',
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        form.reset();
-        if (hint) {
-          hint.textContent = 'Заявка отправлена, я свяжусь с вами в ближайшее время.';
-        }
-      } else {
-        if (hint) {
-          hint.textContent = data.message || 'Ошибка при отправке. Попробуйте ещё раз или напишите мне напрямую.';
-        }
-      }
-    } catch (error) {
-      if (hint) {
-        hint.textContent = 'Сетевая ошибка при отправке. Попробуйте ещё раз или напишите мне напрямую.';
-      }
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-      }
-    }
-  });
-};
+import { initModalForm } from './modalform.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initModalForm();
+  initLanguageModal();
+  contactsBannerTilt();
+  initReviews();
+  portfolioSwiper();
+  initModals();
+  menuBurger();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.header__nav');
+  const burger = document.querySelector('.header__burgerBtn');
+
+  if (!nav || !burger) return;
+
+  const openClass = 'open';
+
+  const closeMenu = () => {
+    nav.classList.remove(openClass);
+  };
+
+  burger.addEventListener('click', () => {
+    nav.classList.toggle(openClass);
+  });
+
+  nav.addEventListener('click', event => {
+    const target = event.target;
+    if (!target) return;
+    if (target.closest('a') || target.closest('button') || target === nav) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.classList.contains(openClass)) return;
+    const target = event.target;
+    if (target.closest('.header__burgerBtn') || target.closest('.header__nav')) return;
+    closeMenu();
+  });
 });

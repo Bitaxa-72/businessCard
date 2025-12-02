@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth !important;
 }
 
+.header__languageSwitcherWrap.mobil,
+.header__feedback.mobile{
+  display: none;
+}
+
 .hero,
 .portfolio,
 .workingWay,
@@ -155,9 +160,25 @@ button {
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: hidden;
+  position: relative;
 
   @include mobile {
     padding: 0 30px;
   }
 }
 
+.header__nav.mobile{
+  display: none;
+}
+
+.header__burgerBtn{
+  display: none;
+}
+
+.header__languageSwitcherWrap.mobile{
+  display: none;
+}
+
+.header__nav.mobile{
+  display: none;
+}
