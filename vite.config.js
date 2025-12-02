@@ -13,6 +13,8 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: './src/index.html',
+                eng: './src/indexEng.html',
+                vi: './src/indexViet.html'
             },
         },
     },
